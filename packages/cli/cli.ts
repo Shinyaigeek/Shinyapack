@@ -1,4 +1,5 @@
+import { CommandOption } from "../../@types/Shinyapack/CommandOption.ts"
 
-export const cli = () => {
+export const cli = (args: CommandOption) => {
     console.log("cli is executed!!")
 }
