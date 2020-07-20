@@ -1,3 +1,3 @@
 export interface CommandOption {
-    target: string
+  target: string;
 }

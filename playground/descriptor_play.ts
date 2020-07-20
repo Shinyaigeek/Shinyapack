@@ -11,9 +11,9 @@ Object.defineProperty(obj, "nay", {
 });
 
 // @ts-ignore
-console.log(obj.asdf, obj.nay)
+console.log(obj.asdf, obj.nay);
 
-for(let key in obj) {
-    //@ts-ignore
-    console.log(key, obj[key]);
+for (let key in obj) {
+  //@ts-ignore
+  console.log(key, obj[key]);
 }

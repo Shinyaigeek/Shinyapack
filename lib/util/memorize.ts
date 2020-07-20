@@ -1,7 +1,7 @@
 export const memorize: <T>(fn: () => T) => () => T = (fn) => {
   let memorized = false;
 
-  let result:unknown;
+  let result: unknown;
 
   return () => {
     if (memorized) {
