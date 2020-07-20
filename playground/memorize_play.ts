@@ -8,7 +8,7 @@ console.log("----not memorize----");
 
 console.log(hoge);
 
-console.log(hoge())
+console.log(hoge());
 
 console.log(hoge);
 
@@ -18,16 +18,14 @@ console.log(hoge);
 
 const fac = memorize(hoge);
 
-console.log("----exec first time-----")
+console.log("----exec first time-----");
 
 console.log(fac, fac());
 
 console.log(hoge);
 
-console.log("----exec second time-----")
+console.log("----exec second time-----");
 
 console.log(fac, fac());
 
 console.log(hoge); // hoge must be undefined
-
-
