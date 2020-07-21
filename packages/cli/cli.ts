@@ -4,7 +4,7 @@ import { renderOneFile } from "../../lib/util/render/renderOneFile/renderOneFile
 
 export const cli = (args: CommandOption) => {
   reader(args.target).then((context) => {
-    renderOneFile("output.ts", context).then((_) => {
+    renderOneFile("dist/output.js", context).then((_) => {
       console.log("bundle is successfulled done 🎉");
     }).catch((e) => {
       console.error("bundle is failed 🤯");
