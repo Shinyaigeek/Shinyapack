@@ -1,1 +1,3 @@
-const hoge = "hoge"
+import hoge from "./module.js";
+
+console.log(hoge);
