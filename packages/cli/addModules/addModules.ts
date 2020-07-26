@@ -1,5 +1,8 @@
 //@deno-types="../../../@types/@babel/parser.d.ts"
 import parser from "https://cdn.skypack.dev/@babel/parser";
+
+import traverse from "https://cdn.skypack.dev/@babel/traverse"
+
 import { reader } from "../../../lib/util/parser/reader/reader.ts";
 
 import { CachedModuleType } from "../../../@types/ShinyapackCli/CachedModuleType.d.ts";
@@ -19,6 +22,10 @@ export const addModules: (
   const ast = parser.parse(txt, {
     sourceType: "module",
   });
+
+  console.log(ast.program.body)
+
+  // const tra = 
 
   return moduleMap.set(moduleMap.size.toString(), {
     id: moduleMap.size.toString(),

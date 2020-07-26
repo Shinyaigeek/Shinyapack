@@ -1,6 +1,7 @@
-import { addModules } from "../addModules/addModules.ts";
+import { makeModuleMap } from "../makeModuleMap/makeModuleMap.ts";
+
 
 export const bundle: (entryPath: string) => string = (entryPath) => {
-  addModules(entryPath);
+  makeModuleMap(entryPath)
   return "";
 };
