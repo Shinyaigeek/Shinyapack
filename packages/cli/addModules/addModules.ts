@@ -1,7 +1,12 @@
+// TODO: deno-typesによるtype refが聞いてない
+
 //@deno-types="../../../@types/@babel/parser.d.ts"
 import parser from "https://cdn.skypack.dev/@babel/parser";
 
+//@deno-types="../../../@types/@babel/traverse.d.ts"
 import traverse from "https://cdn.skypack.dev/@babel/traverse"
+
+import { File } from "../../../@types/@babel/type.d.ts";
 
 import { reader } from "../../../lib/util/parser/reader/reader.ts";
 
@@ -21,7 +26,7 @@ export const addModules: (
   // TODO: 副作用なしに行いたい. gcにメモリ解放を明示するのを型安全に行いたいからあとで調べる
   const ast = parser.parse(txt, {
     sourceType: "module",
-  });
+  }) as File;
 
   console.log(ast.program.body)
 
