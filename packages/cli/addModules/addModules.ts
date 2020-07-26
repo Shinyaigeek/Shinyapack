@@ -2,15 +2,27 @@
 import parser from "https://cdn.skypack.dev/@babel/parser";
 import { reader } from "../../../lib/util/parser/reader/reader.ts";
 
-import { CachedModuleType } from "../../../@types/ShinyapackCli/CachedModuleType.d.ts"
+import { CachedModuleType } from "../../../@types/ShinyapackCli/CachedModuleType.d.ts";
+import { isAlreadyMapped } from "../../../lib/util/map/IsAlreadyMapped/isAlreadyMapped.ts";
 
-export const addModules:(modulePath: string, moduleMap: Map<string, CachedModuleType>) => Map<string, CachedModuleType> = (modulePath, moduleMap) => {
-    reader(modulePath).then(txt => {
+//TODO: load済みのmoduleMap扱うのに非同期は辛い, みんなどうしてるかあとで見る
+export const addModules: (
+  modulePath: string,
+  moduleMap: Map<string, CachedModuleType>,
+) => Promise<Map<string, CachedModuleType>> = async (modulePath, moduleMap) => {
+  if (isAlreadyMapped(modulePath, moduleMap)) {
+    return moduleMap;
+  }
+  const txt = await reader(modulePath);
 
-        const asdf = parser.parse(txt, {
-            sourceType: "module"
-        })
+  // TODO: 副作用なしに行いたい. gcにメモリ解放を明示するのを型安全に行いたいからあとで調べる
+  const ast = parser.parse(txt, {
+    sourceType: "module",
+  });
 
-        console.log(asdf)
-    })
-}
+  return moduleMap.set(moduleMap.size.toString(), {
+    id: moduleMap.size.toString(),
+    path: modulePath,
+    ast: ast,
+  });
+};
