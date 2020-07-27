@@ -69,9 +69,9 @@ console.log(hoge);
 
 ## LoadMap 🚗
 
-- [ ] `export default`
-- [ ] `import default`
-- [ ] bundle
+- [x] `export default`
+- [x] `import default`
+- [x] bundle
 - [ ] format module architecture
 - [ ] stronger typescript(because `deno-types` does not have the effect on type-check on development)
 - [ ] more module test
