@@ -6,7 +6,7 @@ import { bundle } from "./bundle/bundle.ts";
 
 export const cli = (args: CommandOption) => {
   const output = bundle(args.target);
-  console.log(output)
+  console.log(output);
   renderOneFile("dist/output.js", output.code).then((_) => {
     console.log("bundle is successfulled done 🎉");
   }).catch((e) => {

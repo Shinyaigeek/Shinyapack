@@ -16,6 +16,7 @@ export const insertExported: (ast: File) => File = (ast) => {
           ),
           t.objectExpression([]),
         )]),
+      );
     },
   });
 

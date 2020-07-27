@@ -3,9 +3,9 @@
 //@deno-types="../../../@types/@babel/parser.d.ts"
 import parser from "https://cdn.skypack.dev/@babel/parser";
 
-import babelTraverse from "https://jspm.dev/@babel/traverse"
+import babelTraverse from "https://jspm.dev/@babel/traverse";
 
-import traverseType from "../../../@types/@babel/traverse.d.ts"
+import traverseType from "../../../@types/@babel/traverse.d.ts";
 
 import { File } from "../../../@types/@babel/type.d.ts";
 
@@ -21,7 +21,7 @@ export const addModules: (
   modulePath: string,
   moduleMap: Map<string, CachedModuleType>,
 ) => Map<string, CachedModuleType> = (modulePath, moduleMap) => {
-  console.log(modulePath)
+  console.log(modulePath);
   if (isAlreadyMapped(modulePath, moduleMap)) {
     return moduleMap;
   }
@@ -34,7 +34,7 @@ export const addModules: (
 
   // console.log(ast.program.body)
 
-  const traverse = babelTraverse.default as typeof traverseType
+  const traverse = babelTraverse.default as typeof traverseType;
 
   let map = new Map(moduleMap);
 
@@ -46,9 +46,12 @@ export const addModules: (
 
   traverse(ast, {
     ImportDeclaration(nodePath) {
-      map = addModules(normalizeGlob("examples/" + nodePath.node.source.value),  map)
+      map = addModules(
+        normalizeGlob("examples/" + nodePath.node.source.value),
+        map,
+      );
     },
   });
 
-  return map
+  return map;
 };

@@ -6,11 +6,11 @@ export const isAlreadyMapped: (
   modulePath: string,
   moduleMap: Map<string, CachedModuleType>,
 ) => boolean = (modulePath, moduleMap) => {
-    for (let [_, value] of moduleMap) {
-        if(value.path === modulePath) {
-            return true;
-        }
+  for (let [_, value] of moduleMap) {
+    if (value.path === modulePath) {
+      return true;
     }
+  }
 
-    return false;
+  return false;
 };
