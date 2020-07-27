@@ -5,6 +5,7 @@ import babelTraverse from "https://jspm.dev/@babel/traverse";
 import t from "https://jspm.dev/@babel/types";
 
 import traverseType from "../../../@types/@babel/traverse.d.ts";
+import { convertExport } from "../convertExport/convertExport.ts";
 
 export const genCallModule: (ast: File, module: CachedModuleType) => File = (
   ast,
@@ -32,7 +33,7 @@ export const genCallModule: (ast: File, module: CachedModuleType) => File = (
                 ),
               ],
               t.blockStatement(
-                module.ast.program.body,
+                convertExport(module.ast).program.body,
               ),
             ),
           ));
