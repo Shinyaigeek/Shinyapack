@@ -7,10 +7,7 @@ import { insertExported } from "../insertExported/insertExported.ts";
 
 export const bundleModuleMap:  (targetModuleMap: Map<string, CachedModuleType>, ast: File) => File = (targetModuleMap, ast) => {
     const traverse = babelTraverse.default as typeof traverseType;
-    console.log("------bundleModuleMap-----")
     const exportAddedAst = insertExported(ast);
-
-    console.log("bundleMoudleMap done")
 
     return exportAddedAst
 }
