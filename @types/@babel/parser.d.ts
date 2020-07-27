@@ -14,6 +14,10 @@ import { File, Expression } from "./type.d.ts"
  */
 export function parse(input: string, options?: ParserOptions): File;
 
+export default interface BabelParse {
+    parse: typeof parse
+}
+
 /**
  * Parse the provided code as a single expression.
  */

@@ -3,8 +3,7 @@
 //@deno-types="../../../@types/@babel/parser.d.ts"
 import parser from "https://cdn.skypack.dev/@babel/parser";
 
-//@deno-types="../../../@types/@babel/traverse.d.ts"
-import traverse from "https://cdn.skypack.dev/@babel/traverse"
+import babelTraverse from "https://jspm.dev/@babel/traverse"
 
 import { File } from "../../../@types/@babel/type.d.ts";
 
@@ -28,9 +27,16 @@ export const addModules: (
     sourceType: "module",
   }) as File;
 
-  console.log(ast.program.body)
+  // console.log(ast.program.body)
 
-  // const tra = 
+  const traverse = babelTraverse.default
+
+  traverse(ast, {
+    ImportDeclaration(nodePath: string) {
+      console.log("-------")
+      console.log(nodePath)
+    },
+  });
 
   return moduleMap.set(moduleMap.size.toString(), {
     id: moduleMap.size.toString(),
