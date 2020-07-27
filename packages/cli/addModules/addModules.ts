@@ -55,7 +55,7 @@ export const addModules: (
             ),
             t.callExpression(
               t.identifier("$_Shinyapack_import"),
-              [t.stringLiteral(moduleMap.size.toString())],
+              [t.stringLiteral((map.size - 1).toString())],
             ),
           )],
         ),

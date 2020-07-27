@@ -48,7 +48,7 @@ export const insertImport: (ast: File) => File = (ast) => {
                   t.callExpression(
                     t.memberExpression(
                       t.identifier(
-                        "$_Shinyapack_exports",
+                        "$_Shinyapack_modules",
                       ),
                       t.identifier(
                         "id",
