@@ -7,9 +7,6 @@ import traverseType from "../../../@types/@babel/traverse.d.ts";
 
 export const insertExported: (ast: File) => File = (ast) => {
   const traverse = babelTraverse.default as typeof traverseType;
-  console.log("-------");
-  console.log(ast);
-  console.log("-------");
   traverse(ast, {
     Program(nodePath) {
       nodePath.get("body")[0].insertBefore(
@@ -19,7 +16,6 @@ export const insertExported: (ast: File) => File = (ast) => {
           ),
           t.objectExpression([]),
         )]),
-      ), console.log(nodePath);
     },
   });
 

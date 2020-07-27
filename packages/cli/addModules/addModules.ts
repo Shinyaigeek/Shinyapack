@@ -47,7 +47,6 @@ export const addModules: (
   traverse(ast, {
     ImportDeclaration(nodePath) {
       map = addModules(normalizeGlob("examples/" + nodePath.node.source.value),  map)
-      nodePath.remove();
     },
   });
 
