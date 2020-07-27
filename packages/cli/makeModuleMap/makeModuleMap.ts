@@ -4,11 +4,9 @@ import { addModules } from "../addModules/addModules.ts";
 //@deno-types="../../../@types/@babel/parser.d.ts"
 import parser from "https://cdn.skypack.dev/@babel/parser";
 
-export const makeModuleMap: (entryPath: string) => Promise<Map<string, CachedModuleType>> = async (entryPath) => {
+export const makeModuleMap: (entryPath: string) => Map<string, CachedModuleType> = (entryPath) => {
     let map = new Map<string, CachedModuleType>();
-    map = await addModules(entryPath, map);
-
-    console.log(map)
+    map = addModules(entryPath, map);
 
     return map
 }
