@@ -13,7 +13,7 @@ export const genCallModule: (ast: File, module: CachedModuleType) => File = (
 ) => {
   const traverse = babelTraverse.default as typeof traverseType;
 
-  console.log(module.ast.program);
+  console.log(module);
 
   traverse(ast, {
     VariableDeclaration(nodePath) {

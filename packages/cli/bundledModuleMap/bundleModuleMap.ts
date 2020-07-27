@@ -16,6 +16,7 @@ export const bundleModuleMap: (
   const importAddedAst = insertImport(ast);
   const exportAddedAst = insertExported(importAddedAst);
   let moduleAddedAst = insertModules(exportAddedAst);
+  console.log(targetModuleMap);
   for (let i = 1; i < targetModuleMap.size; i++) {
     moduleAddedAst = genCallModule(ast, targetModuleMap.get(i.toString())!);
   }
