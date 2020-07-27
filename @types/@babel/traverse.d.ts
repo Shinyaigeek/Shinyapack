@@ -253,7 +253,6 @@ export interface Visitor<S = Node> extends VisitNodeObject<Node> {
   DeclareModule?: VisitNode<S, t.DeclareModule>;
   DeclareTypeAlias?: VisitNode<S, t.DeclareTypeAlias>;
   DeclareVariable?: VisitNode<S, t.DeclareVariable>;
-  ExistentialTypeParam?: VisitNode<S, t.ExistentialTypeParam>;
   FunctionTypeAnnotation?: VisitNode<S, t.FunctionTypeAnnotation>;
   FunctionTypeParam?: VisitNode<S, t.FunctionTypeParam>;
   GenericTypeAnnotation?: VisitNode<S, t.GenericTypeAnnotation>;
@@ -262,7 +261,6 @@ export interface Visitor<S = Node> extends VisitNodeObject<Node> {
   IntersectionTypeAnnotation?: VisitNode<S, t.IntersectionTypeAnnotation>;
   MixedTypeAnnotation?: VisitNode<S, t.MixedTypeAnnotation>;
   NullableTypeAnnotation?: VisitNode<S, t.NullableTypeAnnotation>;
-  NumericLiteralTypeAnnotation?: VisitNode<S, t.NumericLiteralTypeAnnotation>;
   NumberTypeAnnotation?: VisitNode<S, t.NumberTypeAnnotation>;
   StringLiteralTypeAnnotation?: VisitNode<S, t.StringLiteralTypeAnnotation>;
   StringTypeAnnotation?: VisitNode<S, t.StringTypeAnnotation>;
@@ -435,7 +433,6 @@ export class NodePath<T = Node> {
 
   // ------------------------- inference -------------------------
   /** Infer the type of the current `NodePath`. */
-  getTypeAnnotation(): t.FlowTypeAnnotation;
 
   isBaseType(baseName: string, soft?: boolean): boolean;
 
@@ -753,9 +750,6 @@ export class NodePath<T = Node> {
   isDeclareModule(opts?: object): this is NodePath<t.DeclareModule>;
   isDeclareTypeAlias(opts?: object): this is NodePath<t.DeclareTypeAlias>;
   isDeclareVariable(opts?: object): this is NodePath<t.DeclareVariable>;
-  isExistentialTypeParam(
-    opts?: object,
-  ): this is NodePath<t.ExistentialTypeParam>;
   isFunctionTypeAnnotation(
     opts?: object,
   ): this is NodePath<t.FunctionTypeAnnotation>;
@@ -774,9 +768,6 @@ export class NodePath<T = Node> {
   isNullableTypeAnnotation(
     opts?: object,
   ): this is NodePath<t.NullableTypeAnnotation>;
-  isNumericLiteralTypeAnnotation(
-    opts?: object,
-  ): this is NodePath<t.NumericLiteralTypeAnnotation>;
   isNumberTypeAnnotation(
     opts?: object,
   ): this is NodePath<t.NumberTypeAnnotation>;

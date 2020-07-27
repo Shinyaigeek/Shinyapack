@@ -8,5 +8,7 @@ export const makeModuleMap: (entryPath: string) => Promise<Map<string, CachedMod
     let map = new Map<string, CachedModuleType>();
     map = await addModules(entryPath, map);
 
+    console.log(map)
+
     return map
 }
